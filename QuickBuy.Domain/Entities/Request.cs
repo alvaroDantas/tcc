@@ -1,10 +1,11 @@
 ﻿using QuickBuy.Domain.ValueObject;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuickBuy.Domain.Entities
 {
-    public class Request
+    public class Request : Entity
     {
         public int Id { get; set; }
         public DateTime RequestDate { get; set; }
@@ -17,6 +18,19 @@ namespace QuickBuy.Domain.Entities
         public int AddressNumber { get; set; }
         public int PaymentWayId { get; set; }
         public PaymentWay PaymentWay { get; set; }
-        public ICollection<RequestItem> RequestItem { get; set; }
+        public ICollection<RequestItem> RequestItens { get; set; }
+
+        public override void Validate()
+        {
+            ClearMessages();
+            if (!RequestItens.Any())
+            {
+                AddCritical("Error: Request does not can be with Request item");
+            }
+            if (string.IsNullOrEmpty(CEP))
+            {
+                AddCritical("Error: CEP must be fillied");
+            }
+        }
     }
 }
