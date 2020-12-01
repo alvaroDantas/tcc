@@ -22,7 +22,8 @@ namespace QuickBuy.Domain.Entities
 
         public override void Validate()
         {
-            ClearMessages();
+            ClearValidationMessages();
+
             if (!RequestItens.Any())
             {
                 AddCritical("Error: Request does not can be with Request item");

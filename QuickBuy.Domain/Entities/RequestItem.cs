@@ -10,7 +10,14 @@ namespace QuickBuy.Domain.Entities
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            if(ProductId == 0)
+            {
+                AddCritical("Does not was recognized the product reference");
+            }
+            if(Quantity == 0)
+            {
+                AddCritical("Quantity does not was informed");
+            }
         }
     }
 }

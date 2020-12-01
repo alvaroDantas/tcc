@@ -19,7 +19,7 @@ namespace QuickBuy.Domain.Entities
         {
             get { return !validationMessage.Any(); }
         }
-        protected void ClearMessages()
+        protected void ClearValidationMessages()
         {
             validationMessage.Clear();
         }
