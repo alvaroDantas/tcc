@@ -6,9 +6,9 @@ using System.Text;
 
 namespace QuickBuy.Repository.Repositories
 {
-    public class UserRepository : BaseRepository<User>, IUserRepository
+    public class ProductRepository : BaseRepository<Product>, IProductRepository
     {
-        public UserRepository()
+        public ProductRepository()
         {
 
         }
